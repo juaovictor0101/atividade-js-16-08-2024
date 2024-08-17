@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções JavaScript</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Funções JavaScript</h1>
+
+    <!-- 1) Função MAIOR_MENOR -->
+    <section>
+        <h2>MAIOR_MENOR</h2>
+        <button onclick="maiorMenor()">Calcular Maior e Menor</button>
+        <p id="maior-menor-result"></p>
+    </section>
+
+    <!-- 2) Função VOGAL -->
+    <section>
+        <h2>VOGAL</h2>
+        <button onclick="verificarVogal()">Verificar Vogal</button>
+        <p id="vogal-result"></p>
+    </section>
+
+    <!-- 3) Função LIMITES -->
+    <section>
+        <h2>LIMITES</h2>
+        <button onclick="calcularLimites()">Calcular Números Pares e Somatório</button>
+        <p id="limites-result"></p>
+    </section>
+
+    <!-- 4) Função ORDEM -->
+    <section>
+        <h2>ORDEM</h2>
+        <button onclick="ordenarValores()">Ordenar Valores</button>
+        <p id="ordem-result"></p>
+    </section>
+
+    <!-- 5) Função POSITIVO_NEGATIVO -->
+    <section>
+        <h2>POSITIVO_NEGATIVO</h2>
+        <button onclick="verificarPositivoNegativo()">Verificar Positivo ou Negativo</button>
+        <p id="positivo-negativo-result"></p>
+    </section>
+
+    <!-- 6) Função PAR_IMPAR -->
+    <section>
+        <h2>PAR_IMPAR</h2>
+        <button onclick="verificarParImpar()">Verificar Par ou Ímpar</button>
+        <p id="par-impar-result"></p>
+    </section>
+
+    <script>
+        // 1) Função MAIOR_MENOR
+        function maiorMenor() {
+            let a = parseInt(prompt("Digite o primeiro valor:"));
+            let b = parseInt(prompt("Digite o segundo valor:"));
+            let c = parseInt(prompt("Digite o terceiro valor:"));
+            let d = parseInt(prompt("Digite o quarto valor:"));
+            let e = parseInt(prompt("Digite o quinto valor:"));
+
+            let valores = [a, b, c, d, e];
+            let maior = Math.max(...valores);
+            let menor = Math.min(...valores);
+
+            document.getElementById("maior-menor-result").innerText = `Maior: ${maior}, Menor: ${menor}`;
+        }
+
+        // 2) Função VOGAL
+        function verificarVogal() {
+            let c = prompt("Digite um caractere:");
+            c = c.toLowerCase();
+
+            const vogais = ['a', 'e', 'i', 'o', 'u'];
+            let resultado = vogais.includes(c) ? 1 : 0;
+
+            document.getElementById("vogal-result").innerText = resultado === 1 ? "É uma vogal" : "Não é uma vogal";
+        }
+
+        // 3) Função LIMITES
+        function calcularLimites() {
+            let li = parseInt(prompt("Digite o limite inferior:"));
+            let ls = parseInt(prompt("Digite o limite superior:"));
+            
+            let soma = 0;
+            let pares = [];
+
+            for (let i = li + 1; i < ls; i++) {
+                if (i % 2 === 0) {
+                    pares.push(i);
+                    soma += i;
+                }
+            }
+
+            document.getElementById("limites-result").innerText = `Pares: ${pares.join(', ')}, Somatório: ${soma}`;
+        }
+
+        // 4) Função ORDEM
+        function ordenarValores() {
+            let a = parseInt(prompt("Digite o primeiro valor:"));
+            let b = parseInt(prompt("Digite o segundo valor:"));
+            let c = parseInt(prompt("Digite o terceiro valor:"));
+
+            let valores = [a, b, c];
+            valores.sort((x, y) => x - y);
+
+            document.getElementById("ordem-result").innerText = `Valores em ordem crescente: ${valores.join(', ')}`;
+        }
+
+        // 5) Função POSITIVO_NEGATIVO
+        function verificarPositivoNegativo() {
+            let x = parseInt(prompt("Digite um valor:"));
+            let resultado = x >= 0;
+
+            document.getElementById("positivo-negativo-result").innerText = resultado ? "Positivo" : "Negativo";
+        }
+
+        // 6) Função PAR_IMPAR
+        function verificarParImpar() {
+            let x = parseInt(prompt("Digite um valor:"));
+            let resultado = x % 2 === 0;
+
+            document.getElementById("par-impar-result").innerText = resultado ? "Par" : "Ímpar";
+        }
+    </script>
+</body>
+</html>
